@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private  void operation() throws IOException, JSONException {
-        TextView output = (TextView)findViewById(R.id.output);
+        //TextView output = (TextView)findViewById(R.id.output);
         //String jsonText = readText()
         JSONObject data = ReadJson.read(MainActivity.this);
         JSONArray donnees = data.getJSONArray("data");
@@ -50,11 +50,7 @@ public class MainActivity extends AppCompatActivity {
             jsonfile.read(buffer);
             jsonfile.close();
             json = new String(buffer, "UTF-8");
-            output.setText(metadata[0].toString());
-            String[] tableau = new String[]{
-                    "Un" ,"Deux" ,"Trois" ,"Quatre"
-                    ,"Cinq" ,"Six" ,"Sept" ,"Huit"
-                    ,"Neuf" ,"Dix"};
+
             JsonAdapter adapter = new JsonAdapter(MainActivity.this, donnees);
             ListView l = (ListView)findViewById(R.id.liste);
             l.setAdapter(adapter);
